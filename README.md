@@ -7,14 +7,14 @@ In brief, in URD the diffusion map is calculated by destiny package from a spars
 There are two input files in the script are needed:
 
 -file.in.txt: 
-    gene expression data for all samples 
-    tab seprated file with gene names as header
-    each column for each gene, each row for each sample.
+    |_gene expression data for all samples 
+    |_tab seprated file with gene names as header
+    |_each column for each gene, each row for each sample.
 
 -file.in.meta:
-    meta data for each sample
-    tab seprated file with each row for each sample
-    should contain information to identify which timepoint sample is from
+    |_meta data for each sample
+    |_tab seprated file with each row for each sample
+    |_should contain information to identify which timepoint sample is from
 
 
 check our paper "Human Primodial Germ Cells are Specified from Lineage Primed Progenitors" reently acepted on Cell Reports, with previewd version here https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3443016.
