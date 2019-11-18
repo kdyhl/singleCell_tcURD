@@ -5,7 +5,7 @@ Here I modified URD as time constraint URD (tcURD) to make sure that nearest nei
 In brief, in URD the diffusion map is calculated by destiny package from a sparse distance matrix, with 0 for most of element except those from nearest neighbors. in tcURD Instead of calculating distance from top K nearest neighbors for each cell among all other cells, I put a time constraint : the distances are also set to 0 if two cells are far away (defined by user) in terms of the time points they came from.
 
 
-There are two input files in the script are needed:
+**There are two input files in the script are needed:**<br/>
 -file.in.txt: <br/>
     |_gene expression data for all samples <br/>
     |_tab seprated file with gene names as header<br/>
@@ -17,7 +17,7 @@ There are two input files in the script are needed:
     |_should contain information to identify which timepoint sample is from<br/>
 
 
-Output files:
+**Output files:**<br/>
 -seriers of RDS files record URD object, which could be used for visualize/analyses in original URD package
 
 -pdf files to visualize lineages
