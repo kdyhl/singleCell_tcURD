@@ -21,6 +21,7 @@ In brief, in URD the diffusion map is calculated by destiny package from a spars
 -several RDS files recording URD object from each step, which could be used for visualize/analyses in original URD package
 
 -pdf file showing the lineage tree
+![alt text](https://github.com/kdyhl/singleCell_tcURD/blob/master/example.tree.png)
 
 
 check our paper "Human Primodial Germ Cells are Specified from Lineage Primed Progenitors" reently acepted on Cell Reports, with previewd version here https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3443016.
