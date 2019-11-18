@@ -16,7 +16,7 @@ library(gridExtra)
 
 #
 stage.colors=RColorBrewer::brewer.pal(9,'Set1')[c(1:5,7)]
-
+TIMEDIFF.MAX=1 #max difference in terms of time pont order that two neighbors should have
 
 #
 dir.ou="yourOwnOutputDirectory/"
@@ -50,7 +50,7 @@ expmatrix <- t(as.matrix(read.table(file.in.txt, header = T,sep = '\t',row.names
 expmatrix.fake = 2^expmatrix
 
 metadata <- read.table(file.in.meta, header = T,sep = '\t',row.names = 1, stringsAsFactors = F)
-metadata$timepoint = factor(metadata$timepoint, levels = c("U2hESC", "U2iMeLC", "U2PGCLCd1", "U2PGCLCd2", "U2PGCLCd3", "U2PGCLCd4"))
+metadata$timepoint = factor(metadata$timepoint, levels = c("U2hESC", "U2iMeLC", "U2PGCLCd1", "U2PGCLCd2", "U2PGCLCd3", "U2PGCLCd4")) #shows the temporal order of time points
 
 pgcurd = createURD(count.data = expmatrix.fake, meta = metadata, min.cells=0, min.counts=0, min.genes=0)#, gene.max.cut=5000, max.genes.in.ram=5000)
 pgcurd@logupx.data = as(expmatrix, "dgCMatrix")
@@ -105,7 +105,7 @@ saveRDS(pgcurd,file=file.ou.pgcurd)
 # saveRDS(pgcurd,file=file.ou.pgcurd)
 
 
-find_constraintKNN = function(data, timePoints, k, timeDiff.max=1, distance="euclidean")
+find_constraintKNN = function(data, timePoints, k, timeDiff.max=TIMEDIFF.MAX, distance="euclidean")
 {
   dis.matrix = parDist(data, method=distance) #parDist ##keep the in dist format after dist function in function getConstraintDis
   tP.matrix = dist(timePoints, method="euclidean") #
