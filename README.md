@@ -1,5 +1,7 @@
-URD is to infer the cell fate trajectory especially for time series single cell experiment.
-Here I modified URD as tcURD where the diffusion map is calculated by destiny package from a sparse distance matrix, with 0 for most of element except those from nearest neighbors. Instead of calculating distance from top K nearest neighbors for each cell among all other cells, I put a time constraint that nearest neighbors could only come from samples at the same or nearby time point for the time series experiment so that we could avoid artificial connections of two cells from samples far away from each other in temporal order.
+URD is to infer the cell fate trajectory especially for time series single cell experiment. However, for some circumstance, samples from far apart time points (far away in terms of biology) could be very near computationally, like our case of human primordial germline cell like cell (PGCLC) development, which will seriously bias our trajector results.
+
+Here I modified URD as time constraint URD (tcURD) to make sure that nearest neighbors could only come from samples at the same or nearby time points for the time series experiment, so that we could avoid artificial connections of two cells from samples far away from each other in temporal order.
+In brief, in URD the diffusion map is calculated by destiny package from a sparse distance matrix, with 0 for most of element except those from nearest neighbors. in tcURD Instead of calculating distance from top K nearest neighbors for each cell among all other cells, I put a time constraint : the distances are also set to 0 if two cells are far away (defined by user) in terms of the time points they came from.
 
 
 There are two input files in the script are needed:
